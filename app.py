@@ -10,7 +10,7 @@ vectorizer = joblib.load('vectorizer.joblib') #loading the saved TF-IDF Vectoriz
 
 @app.route("/predict", methods=["POST"])  # Whenever user Posts data to "/predict", call this function
 
-def predcit():
+def predict():
 
     data = request.get_json()  # reading the incoming json data
     reviews = data['reviews']  # extract the revew from the dictionary
