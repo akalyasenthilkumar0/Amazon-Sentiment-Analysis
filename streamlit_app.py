@@ -17,10 +17,7 @@ if st.button("Analyze Sentiment"):
     else:
         with st.spinner("Analyzing..."):
             # Call your Flask backend
-            response = requests.post(
-                "https://amazon-sentiment-analysis-93gd.onrender.com/predict",
-                json={"reviews": review}
-            )
+            response = requests.post("https://amazon-sentiment-analysis-93gd.onrender.com/predict", json={"reviews": review})
             result = response.json()
         # Display result
         sentiment = result['prediction']
