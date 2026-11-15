@@ -9,7 +9,6 @@ model = joblib.load('model.joblib')  #loading the saved model
 vectorizer = joblib.load('vectorizer.joblib') #loading the saved TF-IDF Vectorizer
 
 @app.route("/predict", methods=["POST"])  # Whenever user Posts data to "/predict", call this function
-
 def predict():
 
     data = request.get_json()  # reading the incoming json data
@@ -21,9 +20,10 @@ def predict():
     return jsonify({"prediction":"positive" if prediction[0] == "1" else "negative"})  #Output the sentiment. jsonify is sued to convert python dict to json object
 
 @app.route("/health", methods=['GET']) # used to check if the server is running. it'll output status:ok if server is running.
-
 def health():
     return jsonify({"status":"ok"})
+
+
 
 if __name__ == "__main__":
 
